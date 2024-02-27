@@ -1,6 +1,6 @@
-{# @var qualityConfig \Basilicom\DataQualityBundle\View\DataQualityViewModel #}
-{# @var group \Basilicom\DataQualityBundle\View\DataQualityGroupViewModel #}
-{# @var field \Basilicom\DataQualityBundle\View\DataQualityFieldViewModel #}
+{# @var qualityConfig \BigJabber\DataQualityBundle\View\DataQualityViewModel #}
+{# @var group \BigJabber\DataQualityBundle\View\DataQualityGroupViewModel #}
+{# @var field \BigJabber\DataQualityBundle\View\DataQualityFieldViewModel #}
 
 {% extends '@DataQuality/layout.html.twig' %}
 
@@ -29,7 +29,7 @@
                     {% for group in qualityConfig.groups %}
                         <div class="data-quality__group">
                             <h2 class="data-quality__group-headline">
-                                {% if group.name == constant('Basilicom\\DataQualityBundle\\DefinitionsCollection\\Factory\\FieldDefinitionFactory::DEFAULT_GROUP') %}
+                                {% if group.name == constant('BigJabber\\DataQualityBundle\\DefinitionsCollection\\Factory\\FieldDefinitionFactory::DEFAULT_GROUP') %}
                                     {{ 'dataQuality.label.default-group' | trans }}
                                 {% else %}
                                     {{ group.name }}

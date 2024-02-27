@@ -9,35 +9,35 @@ services:
         # if you need to do this, you can override this setting on individual services
         public: false
 
-    Basilicom\DataQualityBundle\Controller\:
+    BigJabber\DataQualityBundle\Controller\:
       resource: '../../Controller'
       public: true
       tags: ['controller.service_arguments']
 
-    Basilicom\DataQualityBundle\Command\:
+    BigJabber\DataQualityBundle\Command\:
       resource: '../../Command'
       public: true
       tags: ['command.service_arguments']
 
-    Basilicom\DataQualityBundle\Tools\Installer:
+    BigJabber\DataQualityBundle\Tools\Installer:
       public: true
       arguments:
         $bundle: "@=service('kernel').getBundle('DataQualityBundle')"
 
-    Basilicom\DataQualityBundle\DefinitionsCollection\Factory\FieldDefinitionFactory:
+    BigJabber\DataQualityBundle\DefinitionsCollection\Factory\FieldDefinitionFactory:
       public: true
 
-    Basilicom\DataQualityBundle\Service\DataQualityService:
+    BigJabber\DataQualityBundle\Service\DataQualityService:
       public: true
 
-    Basilicom\DataQualityBundle\Provider\DataQualityProvider:
+    BigJabber\DataQualityBundle\Provider\DataQualityProvider:
       public: true
 
-    Basilicom\DataQualityBundle\Model\Listener\ObjectPostUpdateListener:
+    BigJabber\DataQualityBundle\Model\Listener\ObjectPostUpdateListener:
       tags:
         - { name: kernel.event_listener, event: pimcore.dataobject.postUpdate, method: onPostUpdate }
 
-    Basilicom\DataQualityBundle\Command\UpdateDataQualityCommand:
+    BigJabber\DataQualityBundle\Command\UpdateDataQualityCommand:
       tags:
         - { name: console.command, command: 'dataquality:update' }
 
@@ -46,24 +46,24 @@ services:
     # custom Renderer
     #
     custom_renderer.data_quality_config:
-      class: Basilicom\DataQualityBundle\Model\Renderer\DataQualityConfigRenderer
+      class: BigJabber\DataQualityBundle\Model\Renderer\DataQualityConfigRenderer
       public: true
 
     #
     # option providers
     #
     options_provider.object_classes:
-      class: Basilicom\DataQualityBundle\Model\Provider\ObjectClassesProvider
+      class: BigJabber\DataQualityBundle\Model\Provider\ObjectClassesProvider
       public: true
 
     options_provider.object_fields:
-      class: Basilicom\DataQualityBundle\Model\Provider\ObjectFieldsProvider
+      class: BigJabber\DataQualityBundle\Model\Provider\ObjectFieldsProvider
       public: true
 
     options_provider.error_fields:
-      class: Basilicom\DataQualityBundle\Model\Provider\ErrorFieldsProvider
+      class: BigJabber\DataQualityBundle\Model\Provider\ErrorFieldsProvider
       public: true
 
     options_provider.definitions:
-      class: Basilicom\DataQualityBundle\Model\Provider\DefinitionsProvider
+      class: BigJabber\DataQualityBundle\Model\Provider\DefinitionsProvider
       public: true

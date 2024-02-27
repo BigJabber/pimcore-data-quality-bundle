@@ -2,9 +2,9 @@
 
 namespace BigJabber\DataQualityBundle\Command;
 
-use Basilicom\DataQualityBundle\Exception\DataQualityException;
-use Basilicom\DataQualityBundle\Exception\NoDataObjectsAvailableException;
-use Basilicom\DataQualityBundle\Service\DataQualityService;
+use BigJabber\DataQualityBundle\Exception\DataQualityException;
+use BigJabber\DataQualityBundle\Exception\NoDataObjectsAvailableException;
+use BigJabber\DataQualityBundle\Service\DataQualityService;
 use Exception;
 use Pimcore\Console\AbstractCommand;
 use Pimcore\Model\DataObject\AbstractObject;

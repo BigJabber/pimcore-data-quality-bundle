@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace BigJabber\DataQualityBundle\Model\Provider;
 
 
-use Basilicom\DataQualityBundle\DefinitionsCollection\Factory\FieldDefinitionFactory;
+use BigJabber\DataQualityBundle\DefinitionsCollection\Factory\FieldDefinitionFactory;
 use Pimcore\Model\DataObject;
 use Pimcore\Model\DataObject\ClassDefinition\DynamicOptionsProvider\SelectOptionsProviderInterface;
 use Pimcore\Model\DataObject\DataQualityConfig;

@@ -2,8 +2,8 @@
 
 namespace BigJabber\DataQualityBundle\Service;
 
-use Basilicom\DataQualityBundle\Provider\DataQualityProvider;
-use Basilicom\DataQualityBundle\View\DataQualityViewModel;
+use BigJabber\DataQualityBundle\Provider\DataQualityProvider;
+use BigJabber\DataQualityBundle\View\DataQualityViewModel;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\DataQualityConfig;
 

@@ -2,8 +2,8 @@
 
 namespace BigJabber\DataQualityBundle\DefinitionsCollection;
 
-use Basilicom\DataQualityBundle\Definition\MinimumStringLengthDefinition;
-use Basilicom\DataQualityBundle\Definition\NotEmptyDefinition;
+use BigJabber\DataQualityBundle\Definition\MinimumStringLengthDefinition;
+use BigJabber\DataQualityBundle\Definition\NotEmptyDefinition;
 
 class DefinitionsCollection
 {

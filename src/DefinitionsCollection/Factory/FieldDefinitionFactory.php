@@ -2,8 +2,8 @@
 
 namespace BigJabber\DataQualityBundle\DefinitionsCollection\Factory;
 
-use Basilicom\DataQualityBundle\Definition\DefinitionInterface;
-use Basilicom\DataQualityBundle\DefinitionsCollection\FieldDefinition;
+use BigJabber\DataQualityBundle\Definition\DefinitionInterface;
+use BigJabber\DataQualityBundle\DefinitionsCollection\FieldDefinition;
 use Pimcore\Model\DataObject\Fieldcollection\Data\DataQualityFieldDefinition;
 
 class FieldDefinitionFactory

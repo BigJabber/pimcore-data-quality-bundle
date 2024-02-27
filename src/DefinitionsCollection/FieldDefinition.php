@@ -2,7 +2,7 @@
 
 namespace BigJabber\DataQualityBundle\DefinitionsCollection;
 
-use Basilicom\DataQualityBundle\Definition\DefinitionInterface;
+use BigJabber\DataQualityBundle\Definition\DefinitionInterface;
 
 class FieldDefinition
 {

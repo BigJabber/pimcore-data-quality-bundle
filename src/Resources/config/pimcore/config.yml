@@ -3,8 +3,8 @@ pimcore:
     class_definitions:
       layout:
         map:
-          dataQuality: Basilicom\DataQualityBundle\Model\DataObject\ClassDefinition\Layout\DataQuality
+          dataQuality: BigJabber\DataQualityBundle\Model\DataObject\ClassDefinition\Layout\DataQuality
 
 doctrine_migrations:
   migrations_paths:
-    'Basilicom\DataQualityBundle\Migrations': '@DataQualityBundle/Migrations'
+    'BigJabber\DataQualityBundle\Migrations': '@DataQualityBundle/Migrations'

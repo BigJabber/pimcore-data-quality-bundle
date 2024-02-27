@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace BigJabber\DataQualityBundle;
 
-use Basilicom\DataQualityBundle\Tools\Installer;
+use BigJabber\DataQualityBundle\Tools\Installer;
 use Exception;
 use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
 use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;
@@ -21,7 +21,7 @@ class DataQualityBundle extends AbstractPimcoreBundle
 
     protected function getComposerPackageName(): string
     {
-        return 'basilicom/pimcore-data-quality-bundle';
+        return 'bigjabber/pimcore-data-quality-bundle';
     }
 
     public function getVersion(): string

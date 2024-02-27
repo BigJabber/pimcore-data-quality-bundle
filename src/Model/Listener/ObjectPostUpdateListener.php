@@ -2,7 +2,7 @@
 
 namespace BigJabber\DataQualityBundle\Model\Listener;
 
-use Basilicom\DataQualityBundle\Service\DataQualityService;
+use BigJabber\DataQualityBundle\Service\DataQualityService;
 use Exception;
 use Pimcore\Event\Model\DataObjectEvent;
 use Pimcore\Event\Model\ElementEventInterface;

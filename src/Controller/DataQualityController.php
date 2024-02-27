@@ -2,8 +2,8 @@
 
 namespace BigJabber\DataQualityBundle\Controller;
 
-use Basilicom\DataQualityBundle\Exception\DataQualityException;
-use Basilicom\DataQualityBundle\Service\DataQualityService;
+use BigJabber\DataQualityBundle\Exception\DataQualityException;
+use BigJabber\DataQualityBundle\Service\DataQualityService;
 use Exception;
 use Pimcore\Controller\FrontendController;
 use Pimcore\Model\DataObject;

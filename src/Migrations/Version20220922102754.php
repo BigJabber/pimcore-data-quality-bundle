@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace BigJabber\DataQualityBundle\Migrations;
 
-use Basilicom\DataQualityBundle\Tools\Installer;
+use BigJabber\DataQualityBundle\Tools\Installer;
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 use Pimcore\Model\DataObject\ClassDefinition;

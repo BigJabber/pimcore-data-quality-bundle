@@ -92,7 +92,7 @@ bin/console dataquality:update <quality-config-id> <batch-size>
 
 ### Grid View
 * You can use the "Operator PHP Code" 
-   * ``Basilicom\DataQualityBundle\GridOperator\Quality`` on a Data Quality (number) field 
+   * ``BigJabber\DataQualityBundle\GridOperator\Quality`` on a Data Quality (number) field 
    ![](documentation/grid-view-setting.jpg)
    * to get color-coded (red to green) percentages
    ![](documentation/grid-view.jpg)

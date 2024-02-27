@@ -2,7 +2,7 @@
 
 namespace BigJabber\DataQualityBundle\Definition;
 
-use Basilicom\DataQualityBundle\Exception\AbstractDataQualityException;
+use BigJabber\DataQualityBundle\Exception\AbstractDataQualityException;
 
 class DefinitionException extends AbstractDataQualityException
 {

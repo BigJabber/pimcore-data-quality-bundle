@@ -3,14 +3,14 @@ declare(strict_types=1);
 
 namespace BigJabber\DataQualityBundle\Provider;
 
-use Basilicom\DataQualityBundle\Definition\DefinitionException;
-use Basilicom\DataQualityBundle\DefinitionsCollection\Factory\FieldDefinitionFactory;
-use Basilicom\DataQualityBundle\DefinitionsCollection\FieldDefinition;
-use Basilicom\DataQualityBundle\Exception\DataQualityException;
-use Basilicom\DataQualityBundle\Service\DataObjectService;
-use Basilicom\DataQualityBundle\View\DataQualityFieldViewModel;
-use Basilicom\DataQualityBundle\View\DataQualityGroupViewModel;
-use Basilicom\DataQualityBundle\View\DataQualityViewModel;
+use BigJabber\DataQualityBundle\Definition\DefinitionException;
+use BigJabber\DataQualityBundle\DefinitionsCollection\Factory\FieldDefinitionFactory;
+use BigJabber\DataQualityBundle\DefinitionsCollection\FieldDefinition;
+use BigJabber\DataQualityBundle\Exception\DataQualityException;
+use BigJabber\DataQualityBundle\Service\DataObjectService;
+use BigJabber\DataQualityBundle\View\DataQualityFieldViewModel;
+use BigJabber\DataQualityBundle\View\DataQualityGroupViewModel;
+use BigJabber\DataQualityBundle\View\DataQualityViewModel;
 use Pimcore\Model\DataObject\AbstractObject;
 use Pimcore\Model\DataObject\ClassDefinition\Data;
 use Pimcore\Model\DataObject\DataQualityConfig;
