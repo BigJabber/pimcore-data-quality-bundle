@@ -3,6 +3,13 @@
 Depending on user-configurable weighted rules (data quality configuration objects)
 one- or multiple quality values are computed and stored in data objects.
 
+This version of the DQB allows data quality to be measured using different configurations
+at different object depths. It has also been modified to allow for storage of not just 
+a numeric completeness check but to store any invalid fields in a multiselect box. 
+
+I feel that these changes are unique to my needs and will develop on top of this project
+rather than contributing back to the source.
+
 -------
 
 ## Version
@@ -12,16 +19,16 @@ one- or multiple quality values are computed and stored in data objects.
 | &lt; 2.0 | ^7.3 | ^6.0 |
 | &gt;= 2.0 | ^8.0 | ^10.0 |
 
-## Installation
-1. Require the bundle using ``composer require basilicom/pimcore-data-quality-bundle``
-3. Enable the bundle ``bin/console pimcore:bundle:enable DataQualityBundle``
-3. Install the bundle ``bin/console pimcore:bundle:install DataQualityBundle``
+
 
 ## Configuration
 
-### Add field to object class
+### Add fields to object class
 * Add a field of type ``number`` to the object class that you want to analyze.
+* Add a field of type ``multiselect`` to the object class that you want to analyze. 
 ![](documentation/data-quality-field-for-percentage.jpg)
+
+
 
 
 ### Add new DataQualityConfig
@@ -29,6 +36,8 @@ one- or multiple quality values are computed and stored in data objects.
    * Give it a name
    * Choose a class from the select box and hit ``Save & Publish`` and reload
    * Choose the field you created in step 1 for the data quality percentage
+   * Choose the field you created in step 1 for the data quality errors
+   * Choose the depth of object that your config should analyze (defaults to 0)
    * Set "Allow System User" to "Yes" if you want to allow system users to trigger an update
    ![](documentation/data-quality-config-object.png)
    
