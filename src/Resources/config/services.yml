@@ -41,9 +41,6 @@ services:
       tags:
         - { name: console.command, command: 'dataquality:update' }
 
-    Basilicom\DataQualityBundle\EventSubscriber\:
-      resource: '../../EventSubscriber/*'
-      tags: [ kernel.event_listener ]
 
     #
     # custom Renderer
@@ -61,6 +58,10 @@ services:
 
     options_provider.object_fields:
       class: Basilicom\DataQualityBundle\Model\Provider\ObjectFieldsProvider
+      public: true
+
+    options_provider.error_fields:
+      class: Basilicom\DataQualityBundle\Model\Provider\ErrorFieldsProvider
       public: true
 
     options_provider.definitions:

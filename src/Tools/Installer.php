@@ -26,7 +26,7 @@ class Installer extends SettingsStoreAwareInstaller
         parent::__construct($bundle);
     }
 
-    public function install(): void
+    public function install()
     {
         $this->installFieldCollection();
         $this->installClasses();

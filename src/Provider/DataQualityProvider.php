@@ -7,6 +7,7 @@ use Basilicom\DataQualityBundle\Definition\DefinitionException;
 use Basilicom\DataQualityBundle\DefinitionsCollection\Factory\FieldDefinitionFactory;
 use Basilicom\DataQualityBundle\DefinitionsCollection\FieldDefinition;
 use Basilicom\DataQualityBundle\Exception\DataQualityException;
+use Basilicom\DataQualityBundle\Service\DataObjectService;
 use Basilicom\DataQualityBundle\View\DataQualityFieldViewModel;
 use Basilicom\DataQualityBundle\View\DataQualityGroupViewModel;
 use Basilicom\DataQualityBundle\View\DataQualityViewModel;
@@ -50,13 +51,39 @@ final class DataQualityProvider
         )) {
             DataObjectVersion::disable();
 
-            $dataObject->$setter((float) $value);
+            $dataObject->$setter($value);
             $dataObject->save();
 
             DataObjectVersion::enable();
         }
 
         return $value;
+    }
+
+    private function setDataQualityErrors(AbstractObject $dataObject, array $groups, string $fieldname, array $keys): void
+    {
+        $errorFields = [];
+        /** @var DataQualityGroupViewModel $group */
+        foreach ($groups as $group) {
+            foreach ($group->getFields() as $field) {
+                if (!$field->isValid()) {
+                    $errorFields[] = $keys[$field->getName()];
+                }
+            }
+        }
+
+        $setter = 'set' . \ucfirst($fieldname);
+        if (\method_exists(
+            $dataObject,
+            $setter
+        )) {
+            DataObjectVersion::disable();
+
+            $dataObject->$setter($errorFields);
+            $dataObject->save();
+
+            DataObjectVersion::enable();
+        }
     }
 
     /**
@@ -71,7 +98,11 @@ final class DataQualityProvider
             $dataQualityClass = $dataQualityConfig->getDataQualityClass();
             if ($dataObject && $dataObject->getClassId() === $dataQualityClass) {
                 if ($dataQualityConfig->isPublished()) {
-                    $dataQualityConfigs[$dataQualityConfig->getId()] = $dataQualityConfig;
+                    $dataObjectService = new DataObjectService();
+                    $depth = $dataObjectService->getObjectDepth($dataObject);
+                    if ($dataQualityConfig->getDataQualityDepth() == $depth) {
+                        $dataQualityConfigs[$dataQualityConfig->getId()] = $dataQualityConfig;
+                    }
                 }
             }
         }
@@ -87,6 +118,7 @@ final class DataQualityProvider
         $dataQualityRules = $this->getDataQualityRules($dataQualityConfig);
 
         $dataQualityGroups = [];
+        $dataQualityKeys = [];
 
         foreach ($dataQualityRules as $dataQualityRuleGroupName => $dataQualityRuleGroup) {
             $dataQualityFields = [];
@@ -135,6 +167,8 @@ final class DataQualityProvider
                     $fieldDefinition->getLanguage(),
                     $validFields
                 );
+
+                $dataQualityKeys[$fieldDefinition->getTitle()] = $fieldDefinition->getFieldName();
             }
 
             $dataQualityGroups[] = new DataQualityGroupViewModel(
@@ -144,6 +178,7 @@ final class DataQualityProvider
         }
 
         $percent = $this->setDataQualityPercent($dataObject, $dataQualityGroups, $dataQualityConfig->getDataQualityField());
+        $this->setDataQualityErrors($dataObject, $dataQualityGroups, $dataQualityConfig->getDataQualityFieldErrors(), $dataQualityKeys);
 
         return new DataQualityViewModel(
             $dataQualityConfig->getDataQualityName(),

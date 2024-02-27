@@ -2,13 +2,18 @@
 
 namespace Basilicom\DataQualityBundle\GridOperator;
 
-use Pimcore\Bundle\AdminBundle\DataObject\GridColumnConfig\Operator\AbstractOperator;
-use Pimcore\Bundle\AdminBundle\DataObject\GridColumnConfig\ResultContainer;
+use Pimcore\DataObject\GridColumnConfig\Operator\AbstractOperator;
 use stdClass;
 
 class Quality extends AbstractOperator
 {
-    private array $colorPalette = ['#FFA0A0', '#FFD098', '#ffff90', '#C8FF90', '#90ff90'];
+    private $colorPalette = [
+        '#FFA0A0',
+        '#FFD098',
+        '#ffff90',
+        '#C8FF90',
+        '#90ff90',
+    ];
 
     public function __construct(stdClass $config, array $context = [])
     {
@@ -18,30 +23,30 @@ class Quality extends AbstractOperator
     /**
      * {@inheritdoc}
      */
-    public function getLabeledValue($element): ResultContainer|stdClass|null
+    public function getLabeledValue($element)
     {
-        $result = new stdClass();
+        $result        = new stdClass();
         $result->label = $this->label;
 
-        $children = $this->getChildren();
+        $childs = $this->getChilds();
 
-        if (!$children) {
+        if (!$childs) {
             return $result;
+        } else {
+            $child       = $childs[0];
+            $childResult = $child->getLabeledValue($element);
+            $childValue  = min(100, max(0, (int)$childResult->value));
+
+            $colorIndex = (int)(($childValue / 100) * (count($this->colorPalette) - 1));
+
+            $color = $this->colorPalette[$colorIndex];
+
+            $result->value = '<div style="background-color:'.$color.'; text-align:center; font-weight: bold; margin: 0 -10px;">'
+                . $childValue
+                . '%</div>';
+
+            $result->isArrayType = false;
         }
-
-        $child = $children[0];
-        $childResult = $child->getLabeledValue($element);
-
-        $childValue = min(100, max(0, (int)$childResult->value));
-        $colorIndex = (int)(($childValue / 100) * (count($this->colorPalette) - 1));
-
-        $result->value = sprintf(
-            '<div style="background-color:%s; text-align:center; font-weight: bold; margin: 0 -10px;">%s%%</div>',
-            $this->colorPalette[$colorIndex],
-            $childValue
-        );
-
-        $result->isArrayType = false;
 
         return $result;
     }

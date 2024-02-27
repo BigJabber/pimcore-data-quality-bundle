@@ -2,7 +2,9 @@ dataQualityConfig:
   field:
     dataQualityName: Name
     dataQualityField: Choose Field
+    dataQualityFieldErrors: Choose Error Field
     dataQualityClass: Choose Class
+    dataQualityDepth: Object Depth
     dataQualityRules: Rules
     dataQualitySystemAllowed: Allow System User
   text:
@@ -10,6 +12,9 @@ dataQualityConfig:
     dataQualityDescriptionField: Please choose the field of that class, where the data quality percent value will be stored.
     dataQualityRules: Here you can add as many rules as you need.
     title: Data Quality Field Definition
+  tooltip:
+    dataQualityFieldErrors: Any fields that don't meet the rules will be added to the field
+    dataQualityDepth: For multi variation objects. Product depth starts at zero
 
 dataQualityFieldDefinition:
   field:

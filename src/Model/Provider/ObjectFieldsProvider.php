@@ -26,7 +26,7 @@ class ObjectFieldsProvider implements SelectOptionsProviderInterface
         if (isset($context['fieldname'])) {
             $fieldName = $context['fieldname'];
         }
-        if ($fieldName !== 'Field' && $fieldName !== 'DataQualityField') {
+        if ($fieldName !== 'Field' && $fieldName !== 'DataQualityField' && $fieldName != 'DataQualityFieldErrors') {
             return [];
         }
 

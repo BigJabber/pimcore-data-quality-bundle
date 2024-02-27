@@ -23,7 +23,7 @@ class FieldDefinitionFactory
             $fieldName,
             $title,
             empty($definition->getWeight()) ? 0 : (int) $definition->getWeight(),
-            $this->parameterStringToArray((string) $definition->getParameters()),
+            $this->parameterStringToArray($definition->getParameters()),
             $language ?? null
         );
     }
