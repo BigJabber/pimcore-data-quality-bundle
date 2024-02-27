@@ -1,6 +1,6 @@
 <?php
 
-namespace Basilicom\DataQualityBundle\Model\Provider;
+namespace BigJabber\DataQualityBundle\Model\Provider;
 
 use Basilicom\DataQualityBundle\DefinitionsCollection\DefinitionsCollection;
 use Pimcore\Model\DataObject\ClassDefinition\DynamicOptionsProvider\SelectOptionsProviderInterface;

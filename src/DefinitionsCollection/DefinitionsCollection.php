@@ -1,6 +1,6 @@
 <?php
 
-namespace Basilicom\DataQualityBundle\DefinitionsCollection;
+namespace BigJabber\DataQualityBundle\DefinitionsCollection;
 
 use Basilicom\DataQualityBundle\Definition\MinimumStringLengthDefinition;
 use Basilicom\DataQualityBundle\Definition\NotEmptyDefinition;

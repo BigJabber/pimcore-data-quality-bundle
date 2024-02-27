@@ -1,6 +1,6 @@
 <?php
 
-namespace Basilicom\DataQualityBundle\Controller;
+namespace BigJabber\DataQualityBundle\Controller;
 
 use Basilicom\DataQualityBundle\Exception\DataQualityException;
 use Basilicom\DataQualityBundle\Service\DataQualityService;

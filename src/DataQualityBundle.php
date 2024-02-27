@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Basilicom\DataQualityBundle;
+namespace BigJabber\DataQualityBundle;
 
 use Basilicom\DataQualityBundle\Tools\Installer;
 use Exception;

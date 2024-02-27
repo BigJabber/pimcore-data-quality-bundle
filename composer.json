@@ -1,22 +1,18 @@
 {
-  "name": "basilicom/pimcore-data-quality-bundle",
+  "name": "bigjabber/pimcore-data-quality-bundle",
   "license": "GPL-3.0-or-later",
   "type": "pimcore-bundle",
-  "description": "Data Quality Bundle for Pimcore",
+  "description": "Data Quality Bundle for Pimcore - Forked from basilicom/pimcore-data-quality-bundle",
   "keywords": [
     "pimcore",
     "data quality",
     "dataquality"
   ],
-  "homepage": "https://basilicom.de",
+  "homepage": "https://github.com/BigJabber/pimcore-data-quality-bundle",
   "authors": [
     {
-      "name": "Conrad Guelzow",
-      "email": "conrad.guelzow@basilicom.de"
-    },
-    {
-      "name": "Basilicom GmbH",
-      "homepage": "https://basilicom.de"
+      "name": "James Broady",
+      "email": "james.broady@gmail.com"
     }
   ],
   "require": {
@@ -25,13 +21,13 @@
   },
   "autoload": {
     "psr-4": {
-      "Basilicom\\DataQualityBundle\\": "src/"
+      "BigJabber\\DataQualityBundle\\": "src/"
     }
   },
   "extra": {
     "pimcore": {
       "bundles": [
-        "Basilicom\\DataQualityBundle\\DataQualityBundle"
+        "BigJabber\\DataQualityBundle\\DataQualityBundle"
       ]
     }
   }

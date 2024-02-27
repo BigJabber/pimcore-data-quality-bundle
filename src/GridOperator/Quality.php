@@ -1,6 +1,6 @@
 <?php
 
-namespace Basilicom\DataQualityBundle\GridOperator;
+namespace BigJabber\DataQualityBundle\GridOperator;
 
 use Pimcore\DataObject\GridColumnConfig\Operator\AbstractOperator;
 use stdClass;

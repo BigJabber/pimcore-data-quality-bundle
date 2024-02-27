@@ -1,6 +1,6 @@
 <?php
 
-namespace Basilicom\DataQualityBundle\Model\Listener;
+namespace BigJabber\DataQualityBundle\Model\Listener;
 
 use Basilicom\DataQualityBundle\Service\DataQualityService;
 use Exception;

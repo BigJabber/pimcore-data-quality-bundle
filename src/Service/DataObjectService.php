@@ -1,6 +1,6 @@
 <?php
 
-namespace Basilicom\DataQualityBundle\Service;
+namespace BigJabber\DataQualityBundle\Service;
 
 use Pimcore\Model\DataObject;
 

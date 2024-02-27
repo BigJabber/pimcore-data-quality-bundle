@@ -1,6 +1,6 @@
 <?php
 
-namespace Basilicom\DataQualityBundle\Command;
+namespace BigJabber\DataQualityBundle\Command;
 
 use Basilicom\DataQualityBundle\Exception\DataQualityException;
 use Basilicom\DataQualityBundle\Exception\NoDataObjectsAvailableException;

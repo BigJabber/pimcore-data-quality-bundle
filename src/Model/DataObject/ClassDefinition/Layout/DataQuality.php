@@ -1,6 +1,6 @@
 <?php
 
-namespace Basilicom\DataQualityBundle\Model\DataObject\ClassDefinition\Layout;
+namespace BigJabber\DataQualityBundle\Model\DataObject\ClassDefinition\Layout;
 
 use Pimcore\Model;
 use Pimcore\Model\DataObject\ClassDefinition\Data\LayoutDefinitionEnrichmentInterface;

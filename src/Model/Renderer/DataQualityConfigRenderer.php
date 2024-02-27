@@ -1,6 +1,6 @@
 <?php
 
-namespace Basilicom\DataQualityBundle\Model\Renderer;
+namespace BigJabber\DataQualityBundle\Model\Renderer;
 
 use Pimcore\Model\DataObject\ClassDefinition\Layout\DynamicTextLabelInterface;
 use Symfony\Component\Translation\TranslatorInterface;

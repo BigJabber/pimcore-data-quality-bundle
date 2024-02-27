@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Basilicom\DataQualityBundle\Tools;
+namespace BigJabber\DataQualityBundle\Tools;
 
 use Pimcore\Extension\Bundle\Installer\Exception\InstallationException;
 use Pimcore\Extension\Bundle\Installer\SettingsStoreAwareInstaller;

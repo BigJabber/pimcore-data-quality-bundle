@@ -1,6 +1,6 @@
 <?php
 
-namespace Basilicom\DataQualityBundle\DefinitionsCollection\Factory;
+namespace BigJabber\DataQualityBundle\DefinitionsCollection\Factory;
 
 use Basilicom\DataQualityBundle\Definition\DefinitionInterface;
 use Basilicom\DataQualityBundle\DefinitionsCollection\FieldDefinition;

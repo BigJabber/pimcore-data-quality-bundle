@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Basilicom\DataQualityBundle\Migrations;
+namespace BigJabber\DataQualityBundle\Migrations;
 
 use Basilicom\DataQualityBundle\Tools\Installer;
 use Doctrine\DBAL\Schema\Schema;

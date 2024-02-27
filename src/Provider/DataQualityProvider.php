@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Basilicom\DataQualityBundle\Provider;
+namespace BigJabber\DataQualityBundle\Provider;
 
 use Basilicom\DataQualityBundle\Definition\DefinitionException;
 use Basilicom\DataQualityBundle\DefinitionsCollection\Factory\FieldDefinitionFactory;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Basilicom\DataQualityBundle\View;
+namespace BigJabber\DataQualityBundle\View;
 
 class DataQualityViewModel
 {

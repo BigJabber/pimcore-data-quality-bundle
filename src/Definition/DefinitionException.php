@@ -1,6 +1,6 @@
 <?php
 
-namespace Basilicom\DataQualityBundle\Definition;
+namespace BigJabber\DataQualityBundle\Definition;
 
 use Basilicom\DataQualityBundle\Exception\AbstractDataQualityException;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Basilicom\DataQualityBundle\Exception;
+namespace BigJabber\DataQualityBundle\Exception;
 
 use Exception;
 

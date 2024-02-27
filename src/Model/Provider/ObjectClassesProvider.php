@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Basilicom\DataQualityBundle\Model\Provider;
+namespace BigJabber\DataQualityBundle\Model\Provider;
 
 use Pimcore\Model\DataObject\ClassDefinition;
 use Pimcore\Model\DataObject\ClassDefinition\DynamicOptionsProvider\SelectOptionsProviderInterface;
