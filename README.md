@@ -69,6 +69,12 @@ rather than contributing back to the source.
 * you can see in the view which fields of the object brick are valid (similar to the languages)
 ![](documentation/objectbrick-field-view.png)
 
+#### Classification Store
+* You can validate specific classification store fields using the group and key IDs
+![](documentation/classification-store-setup.png)
+* Your fields will be reported separately but within a shared node of the error list.
+![](documentation/classification-store-percentage.png)
+
 ### Layout Component ``Data Quality`` (Optional)
 * Add the new field type ``Data Quality`` from the Layout Components to the chosen object class
    * it works like a panel so use it where ever you like

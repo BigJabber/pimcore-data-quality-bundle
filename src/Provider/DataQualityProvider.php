@@ -16,6 +16,7 @@ use Pimcore\Model\DataObject\ClassDefinition\Data;
 use Pimcore\Model\DataObject\DataQualityConfig;
 use Pimcore\Model\DataObject\Fieldcollection\Data\DataQualityFieldDefinition;
 use Pimcore\Model\DataObject\Objectbrick;
+use Pimcore\Model\DataObject\Classificationstore;
 use Pimcore\Model\Version as DataObjectVersion;
 use Pimcore\Tool;
 
@@ -144,6 +145,12 @@ final class DataQualityProvider
                         $getter,
                         $fieldDefinition
                     );
+                } elseif ($this->isClassificationStore($classFieldDefinition)) {
+                    [$valid, $validFields] = $this->validateClassificationstore(
+                        $dataObject,
+                        $getter,
+                        $fieldDefinition
+                    );
                 } elseif ($isLocalizedField) {
                     [$valid, $validFields] = $this->validateLanguages(
                         $dataObject,
@@ -227,6 +234,11 @@ final class DataQualityProvider
         return $fieldDefinition->getFieldtype() === 'objectbricks';
     }
 
+    private function isClassificationStore(Data $fieldDefinition): bool 
+    {
+        return $fieldDefinition->getFieldtype() === 'classificationstore';
+    }
+
     private function validateObjectBricks(
         AbstractObject $dataObject,
         string $getter,
@@ -246,6 +258,47 @@ final class DataQualityProvider
                 );
 
                 $valid = $valid && $validFields[$brickField];
+            }
+        }
+
+        return [
+            $valid,
+            $validFields
+        ];
+    }
+
+    private function validateClassificationstore(
+        AbstractObject $dataObject,
+        string $getter,
+        FieldDefinition $fieldDefinition
+    ): array {
+        $valid = true;
+        $validFields = [];
+        /** @var Objectbrick $brickContainer */
+        $classificationStore = $dataObject->$getter();
+        $params = $fieldDefinition->getParameters();
+        $paramParts = explode(".", $params[0]);
+        if (count($paramParts) == 2) {
+            $groupId = $paramParts[0];
+            $keys = $paramParts[1];
+            foreach (explode("|", $keys) as $keyId) {
+                $keyConfig = Classificationstore\KeyConfig::getById($keyId);
+                $keyDefinitionObject = $keyConfig->getDefinition();
+                $keyDefinitionObject = json_decode($keyDefinitionObject);
+
+                $definitionClass = "\\Pimcore\\Model\\DataObject\\ClassDefinition\\Data\\" . ucfirst($keyConfig->getType());
+                $fieldDefinitionObject = new $definitionClass();
+                $fieldDefinitionObject->setName($keyDefinitionObject->name);
+                $fieldDefinitionObject->setOptionsProviderClass($keyDefinitionObject->optionsProviderClass);
+                $fieldDefinitionObject->setOptionsProviderData($keyDefinitionObject->optionsProviderData);
+
+                $validFields[$keyConfig->getName()] = $fieldDefinition->getConditionClass()->validate(
+                    $classificationStore->getLocalizedKeyValue($groupId, $keyId),
+                    $fieldDefinitionObject,
+                    $fieldDefinition->getParameters()
+                );
+
+                $valid = $valid && $validFields[$keyConfig->getName()];
             }
         }
 
