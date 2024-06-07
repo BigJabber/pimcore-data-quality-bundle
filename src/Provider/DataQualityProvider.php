@@ -46,16 +46,15 @@ final class DataQualityProvider
         $value = (int) \round(($countComplete / $countTotal) * 100);
 
         $setter = 'set' . \ucfirst($fieldName);
-        if (\method_exists(
-            $dataObject,
-            $setter
-        )) {
-            DataObjectVersion::disable();
-
-            $dataObject->$setter($value);
-            $dataObject->save();
-
-            DataObjectVersion::enable();
+        $getter = 'get' . \ucfirst($fieldName);
+        if (\method_exists($dataObject, $setter) && \method_exists($dataObject, $getter)) {
+            $previousValue = $dataObject->$getter();
+            if ($previousValue != $value) {
+                DataObjectVersion::disable();
+                $dataObject->$setter($value);
+                $dataObject->save();
+                DataObjectVersion::enable();
+            }
         }
 
         return $value;
@@ -74,16 +73,15 @@ final class DataQualityProvider
         }
 
         $setter = 'set' . \ucfirst($fieldname);
-        if (\method_exists(
-            $dataObject,
-            $setter
-        )) {
-            DataObjectVersion::disable();
-
-            $dataObject->$setter($errorFields);
-            $dataObject->save();
-
-            DataObjectVersion::enable();
+        $getter = 'get' . \ucfirst($fieldname);
+        if (\method_exists($dataObject, $setter) && method_exists($dataObject, $getter)) {
+            $previousErrors = $dataObject->$getter();
+            if ($previousErrors != $errorFields) {
+                DataObjectVersion::disable();
+                $dataObject->$setter($errorFields);
+                $dataObject->save();
+                DataObjectVersion::enable();
+            }
         }
     }
 
