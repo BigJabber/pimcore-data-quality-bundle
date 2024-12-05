@@ -34,7 +34,7 @@ class DataQuality extends Layout implements LayoutDefinitionEnrichmentInterface
      *
      * @return self
      */
-    public function enrichLayoutDefinition($object, $context = [])
+    public function enrichLayoutDefinition($object, $context = []): static
     {
         return $this;
     }
