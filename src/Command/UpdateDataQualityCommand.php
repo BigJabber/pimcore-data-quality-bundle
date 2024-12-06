@@ -16,12 +16,13 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'dataquality:update',
+    description: 'Re-compute and update data quality on objects.'
+)]
 class UpdateDataQualityCommand extends AbstractCommand
 {
     const STOP_CHILD_PROCESS = 987;
-
-    protected static $defaultName        = 'dataquality:update';
-    protected static $defaultDescription = 'Re-compute and update data quality on objects.';
 
     private int $batchSize = 100;
 
